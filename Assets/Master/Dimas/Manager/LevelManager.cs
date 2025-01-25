@@ -9,6 +9,10 @@ public class LevelManager : MonoBehaviour
     [Header("Level Configuration")]
     public float currentLevelTime;
 
+    [Header("Player Data")]
+    public Player player1;
+    public Player player2;
+
     public static LevelManager Instance { get; private set; } // singleton pattern
 
 
