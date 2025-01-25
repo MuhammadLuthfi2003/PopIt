@@ -2524,7 +2524,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerData:
     point: 0
-    Speed: 0
+    DefaultSpeed: 0
+    RuntimeSpeed: 0
     isSpeedEffect: 0
     isStunEffect: 0
     isStreakEffect: 0
@@ -3553,6 +3554,10 @@ MonoBehaviour:
   spawnTimerDelay: 2
   BubblesGameobjects:
   - {fileID: 7045652742282671857, guid: 025f049d724e91a4fa07d4763b5f28f6, type: 3}
+  - {fileID: 7045652742282671857, guid: a3704d6beb0dd7943a05a54979ffdab4, type: 3}
+  - {fileID: 7045652742282671857, guid: 76c6e3a503f4665479691bd43a8f7772, type: 3}
+  - {fileID: 7045652742282671857, guid: 6f687b7e0096223499bd487482e5b6f5, type: 3}
+  - {fileID: 7045652742282671857, guid: 0ed2a6d0016d01a47b3ba79d35e5f27a, type: 3}
   BubblesSpawnCollider: {fileID: 274405519}
   Bubbless: []
 --- !u!4 &1723521256
