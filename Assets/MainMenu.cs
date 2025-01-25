@@ -123,7 +123,35 @@ public class MainMenu : MonoBehaviour
 
     public void DetermineTime()
     {
+        GameObject clickedButton = UnityEngine.EventSystems.EventSystem.current.currentSelectedGameObject;
+        Button chosenButton = clickedButton.GetComponent<Button>();
 
+        if (chosenButton == Button1m)
+        {
+            PlayerPrefs.SetInt("Time", 60);
+            chosenButton.interactable = false;
+
+            Button3m.interactable = true;
+            Button5m.interactable = true;
+        }
+        else if (chosenButton == Button3m)
+        {
+            PlayerPrefs.SetInt("Time", 180);
+            chosenButton.interactable = false;
+
+            Button1m.interactable = true;
+            Button5m.interactable = true;
+        }
+        else if (chosenButton == Button5m)
+        {
+            PlayerPrefs.SetInt("Time", 300);
+            chosenButton.interactable = false;
+
+            Button1m.interactable = true;
+            Button3m.interactable = true;
+        }
+
+        
     }
 
 }
