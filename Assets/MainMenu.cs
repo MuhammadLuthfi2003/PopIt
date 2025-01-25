@@ -36,6 +36,12 @@ public class MainMenu : MonoBehaviour
         creditsMenu.SetActive(true);
     }
 
+    public void ControlButtonPressed()
+    {
+        mainMenu.SetActive(false);
+        controlsMenu.SetActive(true);
+    }
+
     public void BackToMainMenu()
     {
         mainMenu.SetActive(true);
