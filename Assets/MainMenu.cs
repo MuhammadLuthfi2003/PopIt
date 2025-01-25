@@ -10,43 +10,101 @@ public class MainMenu : MonoBehaviour
     public GameObject playMenu;
     public GameObject settingsMenu;
 
+    private Animator mainMenuAnim;
+    private Animator controlsMenuAnim;
+    private Animator creditsMenuAnim;
+    private Animator playMenuAnim;
+    private Animator settingsMenuAnim;
+
+    bool isMainMenu = true;
+    bool isControlsMenu = false;
+    bool isCreditsMenu = false;
+    bool isPlayMenu = false;
+    bool isSettingsMenu = false;
+
+
     // Start is called before the first frame update
     void Start()
     {
-        controlsMenu.SetActive(false);
-        creditsMenu.SetActive(false);
-        playMenu.SetActive(false);
+        mainMenuAnim = mainMenu.GetComponent<Animator>();
+        controlsMenuAnim = controlsMenu.GetComponent<Animator>();
+        creditsMenuAnim = creditsMenu.GetComponent<Animator>();
+        playMenuAnim = playMenu.GetComponent<Animator>();
+        settingsMenuAnim = settingsMenu.GetComponent<Animator>();
+
+        //controlsMenu.SetActive(false);
+        //creditsMenu.SetActive(false);
+        //playMenu.SetActive(false);
+        //settingsMenu.SetActive(false);
+
+        controlsMenuAnim.SetTrigger("Disable");
+        creditsMenuAnim.SetTrigger("Disable");
+        playMenuAnim.SetTrigger("Disable");
+        settingsMenuAnim.SetTrigger("Disable");
     }
     
     public void PlayButtonPressed()
     {
-        mainMenu.SetActive(false);
-        playMenu.SetActive(true);
+        playMenuAnim.SetTrigger("Enable");
+        mainMenuAnim.SetTrigger("Disable");
+
+        isMainMenu = false;
+        isPlayMenu = true;
     }
 
     public void SettingsButtonPressed()
     {
-        mainMenu.SetActive(false);
-        controlsMenu.SetActive(true);
+        settingsMenuAnim.SetTrigger("Enable");
+        mainMenuAnim.SetTrigger("Disable");
+
+        isMainMenu = false;
+        isSettingsMenu = true;
     }
 
     public void CreditsButtonPressed()
     {
-        mainMenu.SetActive(false);
-        creditsMenu.SetActive(true);
+        creditsMenuAnim.SetTrigger("Enable");
+        mainMenuAnim.SetTrigger("Disable");
+
+        isMainMenu = false;
+        isCreditsMenu = true;
     }
 
     public void ControlButtonPressed()
     {
-        mainMenu.SetActive(false);
-        controlsMenu.SetActive(true);
+        mainMenuAnim.SetTrigger("Disable");
+        controlsMenuAnim.SetTrigger("Enable");
+
+        isMainMenu = false;
+        isControlsMenu = true;
     }
 
     public void BackToMainMenu()
     {
-        mainMenu.SetActive(true);
-        controlsMenu.SetActive(false);
-        creditsMenu.SetActive(false);
-        playMenu.SetActive(false);
+        mainMenuAnim.SetTrigger("Enable");
+        
+        isMainMenu = true;
+
+        if (isControlsMenu)
+        {
+            controlsMenuAnim.SetTrigger("Disable");
+            isControlsMenu = false;
+        }
+        else if (isCreditsMenu)
+        {
+            creditsMenuAnim.SetTrigger("Disable");
+            isCreditsMenu = false;
+        }
+        else if (isPlayMenu)
+        {
+            playMenuAnim.SetTrigger("Disable");
+            isPlayMenu = false;
+        }
+        else if (isSettingsMenu)
+        {
+            settingsMenuAnim.SetTrigger("Disable");
+            isSettingsMenu = false;
+        }
+
     }
 }
