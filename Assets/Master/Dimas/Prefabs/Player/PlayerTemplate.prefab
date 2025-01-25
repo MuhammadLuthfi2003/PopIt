@@ -397,7 +397,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerData:
     point: 0
-    Speed: 5
+    DefaultSpeed: 5
+    RuntimeSpeed: 5
     isSpeedEffect: 0
     isStunEffect: 0
     isStreakEffect: 0

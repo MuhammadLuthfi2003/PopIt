@@ -47,7 +47,7 @@ public class Player : MonoBehaviour
     private void OnMoveUpdate()
     {
         if (inputValue == Vector2.zero) return;
-        playerRb.velocity = inputValue * playerData.Speed;
+        playerRb.velocity = inputValue * playerData.RuntimeSpeed;
 
         // Change Rotation
         Quaternion lookRot = Quaternion.LookRotation(transform.forward, inputValue);
@@ -101,7 +101,8 @@ public class Player : MonoBehaviour
         {
             case EnumManager.BubbleType.Speed:
                 playerData.isSpeedEffect = true;
-                StartCoroutine(playerData.ChangeSpeed(5, playerData.Speed * 2, () => 
+                if (playerData.SpeedCorotine != null) StopCoroutine(playerData.SpeedCorotine);
+                playerData.SpeedCorotine = StartCoroutine(playerData.ChangeSpeed(5, playerData.RuntimeSpeed * 2, () => 
                 {
                     playerData.isSpeedEffect = false;
                 }));
@@ -114,7 +115,8 @@ public class Player : MonoBehaviour
 
                 break;
             case EnumManager.BubbleType.Streak:
-                StartCoroutine(playerData.GetStreakEffect(5));
+                if (playerData.StreakCoroutine != null) StopCoroutine(playerData.StreakCoroutine);
+                playerData.StreakCoroutine = StartCoroutine(playerData.GetStreakEffect(5));
                 
                 break;
         }
@@ -126,12 +128,13 @@ public class Player : MonoBehaviour
 
         for (int i = 0; i < players.Length; i++)
         {
-            Debug.Log(players[i].name);
             if (players[i] == this) continue;
 
+            Debug.Log(players[i].name);
             Player player = players[i];
             player.playerData.isStunEffect = true;
-            player.StartCoroutine(player.playerData.ChangeSpeed(5, 0, () =>
+            if (player.playerData.SpeedCorotine != null) player.StopCoroutine(player.playerData.SpeedCorotine);
+            player.playerData.SpeedCorotine = player.StartCoroutine(player.playerData.ChangeSpeed(5, 2.5f, () =>
             {
                 player.playerData.isStunEffect = false;
             }));
