@@ -13,7 +13,7 @@ public class Player : MonoBehaviour
 
     private Vector2 inputValue;
 
-    private GameObject bubbleInteracted;
+    private List<GameObject> bubblesInteracted = new List<GameObject>();
 
     private void Awake()
     {
@@ -47,17 +47,17 @@ public class Player : MonoBehaviour
     private void OnMoveUpdate()
     {
         if (inputValue == Vector2.zero) return;
-        playerRb.velocity = inputValue * playerData.Speed;
+        playerRb.velocity = inputValue * playerData.RuntimeSpeed;
 
         // Change Rotation
         Quaternion lookRot = Quaternion.LookRotation(transform.forward, inputValue);
-        transform.rotation = Quaternion.Slerp(transform.rotation, lookRot, .1f);
+        transform.rotation = Quaternion.Slerp(transform.rotation, lookRot, .25f);
     }
     private void OnPoppingWithBubble()
     {
-        if (bubbleInteracted == null) return;
+        if (bubblesInteracted == null || bubblesInteracted.Count <= 0) return;
 
-        Bubble bubble = bubbleInteracted.GetComponent<Bubble>();
+        Bubble bubble = bubblesInteracted[0].GetComponent<Bubble>();
 
         bubble.OnPopping(this);
     }
@@ -68,19 +68,27 @@ public class Player : MonoBehaviour
         Debug.Log("Collide : " + other.gameObject.name);
         if (other.gameObject.layer == 6)
         {
-            bubbleInteracted = other.gameObject;
+            bubblesInteracted.Add(other.gameObject);
+        }
+    }
+    private void OnTriggerExit2D(Collider2D other) 
+    {
+        Debug.Log("Collide : " + other.gameObject.name);
+        if (other.gameObject.layer == 6)
+        {
+            bubblesInteracted.Remove(other.gameObject);
         }
     }
     #endregion
 
 
     #region On Player Popping Bubble
-    public void OnPlayerPoppingBubble(Player player, EnumManager.BubbleType type, Vector3 lastBubblePosition)
+    public void OnPlayerPoppingBubble(Player player, int hp, EnumManager.BubbleType type, Vector3 lastBubblePosition)
     {
-        playerData.point++;
+        playerData.point += hp;
         if (playerData.isStreakEffect)
         {
-            playerData.point++;
+            playerData.point += hp * 2;
         }
 
         if (type == EnumManager.BubbleType.NonEffect) return;
@@ -93,7 +101,8 @@ public class Player : MonoBehaviour
         {
             case EnumManager.BubbleType.Speed:
                 playerData.isSpeedEffect = true;
-                StartCoroutine(playerData.ChangeSpeed(5, playerData.Speed * 2, () => 
+                if (playerData.SpeedCorotine != null) StopCoroutine(playerData.SpeedCorotine);
+                playerData.SpeedCorotine = StartCoroutine(playerData.ChangeSpeed(5, playerData.RuntimeSpeed * 2, () => 
                 {
                     playerData.isSpeedEffect = false;
                 }));
@@ -106,7 +115,8 @@ public class Player : MonoBehaviour
 
                 break;
             case EnumManager.BubbleType.Streak:
-                StartCoroutine(playerData.GetStreakEffect(5));
+                if (playerData.StreakCoroutine != null) StopCoroutine(playerData.StreakCoroutine);
+                playerData.StreakCoroutine = StartCoroutine(playerData.GetStreakEffect(5));
                 
                 break;
         }
@@ -118,12 +128,13 @@ public class Player : MonoBehaviour
 
         for (int i = 0; i < players.Length; i++)
         {
-            Debug.Log(players[i].name);
             if (players[i] == this) continue;
 
+            Debug.Log(players[i].name);
             Player player = players[i];
             player.playerData.isStunEffect = true;
-            player.StartCoroutine(player.playerData.ChangeSpeed(5, 0, () =>
+            if (player.playerData.SpeedCorotine != null) player.StopCoroutine(player.playerData.SpeedCorotine);
+            player.playerData.SpeedCorotine = player.StartCoroutine(player.playerData.ChangeSpeed(5, 2.5f, () =>
             {
                 player.playerData.isStunEffect = false;
             }));
@@ -142,9 +153,26 @@ public class Player : MonoBehaviour
             if (distance <= 3)
             {
                 Vector3 direction = player.transform.position - lastBubblePosition;
-                Debug.DrawRay(player.transform.position, direction, Color.red, 100);
-                player.playerRb.AddForce(direction * 10, ForceMode2D.Impulse);
+
+                player.playerRb.AddForce(direction * 5, ForceMode2D.Impulse);
             }
+        }
+
+        Bubble[] bubbles = LevelManager.Instance.bubbleGenerator.Bubbless.ToArray();
+        for (int i = 0; i < bubbles.Length; i++)
+        {
+            Bubble bubble = bubbles[i];
+            float distance = Vector3.Distance(bubble.transform.position, lastBubblePosition);
+            
+            if (distance > 3)
+            {
+                continue;
+            }
+
+            Vector3 direction = bubble.transform.position - lastBubblePosition;
+            bubble.SetForce(direction * 5, ForceMode2D.Impulse);
+
+            bubble.OnPopping(this);
         }
     }
     #endregion

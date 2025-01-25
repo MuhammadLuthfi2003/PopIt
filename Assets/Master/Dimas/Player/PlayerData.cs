@@ -8,25 +8,30 @@ public class PlayerData
 {
     public int point;
 
-    public float Speed;
+    public float DefaultSpeed;
+    public float RuntimeSpeed;
 
     public bool isSpeedEffect;
     public bool isStunEffect;
     public bool isStreakEffect;
 
+    public Coroutine SpeedCorotine, StreakCoroutine;
+
+    public PlayerData()
+    {
+        RuntimeSpeed = DefaultSpeed;
+    }
     public IEnumerator ChangeSpeed(float time, float value, Action onFinished)
     {
         Debug.Log("Change Speed");
 
-        float defaultSpeed = Speed;
-
-        Speed = value;
+        RuntimeSpeed = value;
 
         yield return new WaitForSeconds(time);
 
         Debug.Log("Default Change Speed");
 
-        Speed = defaultSpeed;
+        RuntimeSpeed = DefaultSpeed;
         onFinished?.Invoke();
     }
     public IEnumerator GetStreakEffect(float time)

@@ -12,6 +12,8 @@ public class BubbleGenerator : MonoBehaviour
     public GameObject[] BubblesGameobjects;
     public BoxCollider2D BubblesSpawnCollider;
 
+    public List<Bubble> Bubbless = new List<Bubble>();
+
     private void Start() 
     {
         StartCoroutine(BubbleSpawning());
@@ -19,12 +21,13 @@ public class BubbleGenerator : MonoBehaviour
 
     private IEnumerator BubbleSpawning()
     {
-        CreateInstance();
-        yield return new WaitForSeconds(spawnTimerDelay);
-        
-        StartCoroutine(BubbleSpawning());
+        while (true)
+        {
+            CreateInstance();
+            yield return new WaitForSeconds(spawnTimerDelay);
+        }
     }
-
+    
     private void CreateInstance()
     {
         int spawnIndex = UnityEngine.Random.Range(1, countSpawn);
@@ -40,8 +43,18 @@ public class BubbleGenerator : MonoBehaviour
 
             Bubble bubble = bubblessIns.GetComponent<Bubble>();
 
+            bubble.SetForce(RandomDirectionForce(), ForceMode2D.Impulse);
             bubble.defaultHP = UnityEngine.Random.Range(1, 4);
+
+            Bubbless.Add(bubble);
         }
+    }
+
+    public void RemoveAndDestroyBubbleOnPopping(Bubble bubble)
+    {
+        Bubbless.Remove(bubble);
+
+        Destroy(bubble.gameObject);
     }
 
     public float GetRandomBubbleScale()
@@ -66,5 +79,11 @@ public class BubbleGenerator : MonoBehaviour
         float randomY = UnityEngine.Random.Range(bounds.min.y, bounds.max.y);
 
         return new Vector2(randomX, randomY);
+    }
+    public Vector3 RandomDirectionForce()
+    {
+        Vector3 force = new Vector3(UnityEngine.Random.Range(0, .25f), UnityEngine.Random.Range(0, .25f), UnityEngine.Random.Range(0, .25f));
+
+        return force;
     }
 }

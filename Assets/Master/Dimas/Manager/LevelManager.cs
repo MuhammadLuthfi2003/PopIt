@@ -13,8 +13,9 @@ public class LevelManager : MonoBehaviour
     public Player player1;
     public Player player2;
 
-    public static LevelManager Instance { get; private set; } // singleton pattern
+    public BubbleGenerator bubbleGenerator;
 
+    public static LevelManager Instance { get; private set; } // singleton pattern
 
     private void Awake() 
     {
