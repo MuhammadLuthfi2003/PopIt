@@ -7,13 +7,21 @@ using UnityEngine;
 public class LevelManager : MonoBehaviour
 {
     [Header("Level Configuration")]
-    public float LevelTime;
-    
-    private float currentLevelTime;
+    public float currentLevelTime;
+
+    public static LevelManager Instance { get; private set; } // singleton pattern
+
 
     private void Awake() 
     {
-        currentLevelTime = LevelTime;
+        if (Instance != null && Instance != this)
+        {
+            Destroy(this);
+        }
+        else
+        {
+            Instance = this;
+        }
     }
 
     private void Update() 
