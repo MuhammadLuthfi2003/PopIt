@@ -128,7 +128,7 @@ public class MainMenu : MonoBehaviour
 
         if (chosenButton == Button1m)
         {
-            PlayerPrefs.SetInt("Time", 60);
+            PlayerPrefs.SetFloat("Time", 60f);
             chosenButton.interactable = false;
 
             Button3m.interactable = true;
@@ -136,7 +136,7 @@ public class MainMenu : MonoBehaviour
         }
         else if (chosenButton == Button3m)
         {
-            PlayerPrefs.SetInt("Time", 180);
+            PlayerPrefs.SetFloat("Time", 180f);
             chosenButton.interactable = false;
 
             Button1m.interactable = true;
@@ -144,7 +144,7 @@ public class MainMenu : MonoBehaviour
         }
         else if (chosenButton == Button5m)
         {
-            PlayerPrefs.SetInt("Time", 300);
+            PlayerPrefs.SetFloat("Time", 300f);
             chosenButton.interactable = false;
 
             Button1m.interactable = true;

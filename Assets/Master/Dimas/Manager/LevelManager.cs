@@ -29,6 +29,12 @@ public class LevelManager : MonoBehaviour
         }
     }
 
+    private void Start()
+    {
+        // get time from player prefs
+        currentLevelTime = PlayerPrefs.GetFloat("Time", 60f);
+    }
+
     private void Update() 
     {
         Timer();

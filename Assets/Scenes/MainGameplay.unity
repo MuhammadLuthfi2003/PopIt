@@ -4050,10 +4050,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 9169174147231092371, guid: 8c9084c86bdbe7f45a44915143c6bcc6, type: 3}
-      propertyPath: bubbleSpawnSFX
-      value: 
-      objectReference: {fileID: 8300000, guid: 387c7ab6618bdab4d9ddbacd7d7efb14, type: 3}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
