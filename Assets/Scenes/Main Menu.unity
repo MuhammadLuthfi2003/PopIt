@@ -568,7 +568,7 @@ GameObject:
   - component: {fileID: 314818249}
   - component: {fileID: 314818248}
   m_Layer: 5
-  m_Name: Time (1)
+  m_Name: Time 3m
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3887,7 +3887,7 @@ GameObject:
   - component: {fileID: 1075960518}
   - component: {fileID: 1075960517}
   m_Layer: 5
-  m_Name: Time (2)
+  m_Name: Time 5m
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4509,6 +4509,7 @@ RectTransform:
   - {fileID: 358363748}
   - {fileID: 834320012}
   - {fileID: 1058636757}
+  - {fileID: 1675335837}
   m_Father: {fileID: 1406056675}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
@@ -5062,6 +5063,9 @@ MonoBehaviour:
   creditsMenu: {fileID: 891417740}
   playMenu: {fileID: 2040493409}
   settingsMenu: {fileID: 1285164065}
+  Button1m: {fileID: 1833207537}
+  Button3m: {fileID: 314818248}
+  Button5m: {fileID: 1075960517}
 --- !u!1 &1445452532
 GameObject:
   m_ObjectHideFlags: 0
@@ -5800,6 +5804,81 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1652433384}
   m_CullTransparentMesh: 1
+--- !u!1 &1675335836
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1675335837}
+  - component: {fileID: 1675335839}
+  - component: {fileID: 1675335838}
+  m_Layer: 5
+  m_Name: Image
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &1675335837
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1675335836}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1163945135}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 7, y: 304}
+  m_SizeDelta: {x: 400.861, y: 400.861}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1675335838
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1675335836}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_Sprite: {fileID: 21300000, guid: 3f3b511a522957a478ad05e928086d81, type: 3}
+  m_Type: 0
+  m_PreserveAspect: 0
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+  m_UseSpriteMesh: 0
+  m_PixelsPerUnitMultiplier: 1
+--- !u!222 &1675335839
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1675335836}
+  m_CullTransparentMesh: 1
 --- !u!1 &1687827087
 GameObject:
   m_ObjectHideFlags: 0
@@ -6270,7 +6349,7 @@ GameObject:
   - component: {fileID: 1833207538}
   - component: {fileID: 1833207537}
   m_Layer: 5
-  m_Name: Time
+  m_Name: Time 1m
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -6862,7 +6941,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1942871162}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1406056679}
+        m_TargetAssemblyTypeName: MainMenu, Assembly-CSharp
+        m_MethodName: PlayGame
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1942871162
 MonoBehaviour:
   m_ObjectHideFlags: 0
