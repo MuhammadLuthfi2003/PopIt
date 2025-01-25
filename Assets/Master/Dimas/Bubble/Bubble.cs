@@ -2,27 +2,19 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-[System.Serializable]
-public struct BubbleAnimations
-{
-    [System.Serializable]
-    public class BubbleAnimationStateByHP
-    {
-        public int hpLevel;
-        public string stateName;
-    }
-
-    public BubbleAnimationStateByHP[] bubbleAnimationStateByHP;
-}
-
 public class Bubble : MonoBehaviour
 {
-    public BubbleAnimations animationState;
     public EnumManager.BubbleType bubbleType;
 
-    public float defaultHP;
-    public float currentHP;
+    public int defaultHP;
+    public int currentHP;
 
+    public Rigidbody2D bubbleRb;
+
+    private void Awake() 
+    {
+        bubbleRb = GetComponent<Rigidbody2D>();
+    }
     private void Start() {
         currentHP = defaultHP;
     }
@@ -33,8 +25,17 @@ public class Bubble : MonoBehaviour
 
         if (currentHP <= 0)
         {
-            player.OnPlayerPoppingBubble(player, bubbleType, transform.position);
-            Destroy(gameObject);
+            LevelManager.Instance.bubbleGenerator.RemoveAndDestroyBubbleOnPopping(this);
+            
+            player.OnPlayerPoppingBubble(player, defaultHP, bubbleType, transform.position);
+        }else
+        {
+            Vector3 direction = transform.position - player.transform.position;
+            SetForce(direction, ForceMode2D.Impulse);
         }
+    }
+    public void SetForce(Vector3 direction, ForceMode2D forceMode)
+    {
+        bubbleRb.AddForce(direction, forceMode);
     }
 }
