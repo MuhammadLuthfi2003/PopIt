@@ -17,31 +17,44 @@ public class DisplayUI : MonoBehaviour
     public GameObject victoryPanel;
     public TextMeshProUGUI victoryPlayer;
     public TextMeshProUGUI victoryScore;
+    public Animator victoryPanelAnim;
 
     [Header("Pause Panel")]
     public GameObject pausePanel;
+
+    private bool hasShowVictoryPanel = false;
 
     // Start is called before the first frame update
     void Start()
     {
         Time.timeScale = 1;
         levelManager = LevelManager.Instance;
-        victoryPanel.SetActive(false);
+        victoryPanelAnim = victoryPanel.GetComponent<Animator>();
     }
 
     // Update is called once per frame
     void Update()
     {
-        timerText.text = TimeSpan.FromSeconds(levelManager.currentLevelTime).ToString(@"m\:ss");
-        UpdatePlayerScore();
-
-        if (levelManager.currentLevelTime <= 0)
+        if (levelManager.currentLevelTime > -1)
         {
-            DecideWinner();
-            victoryPanel.SetActive(true);
-            Time.timeScale = 0;
+            timerText.text = TimeSpan.FromSeconds(levelManager.currentLevelTime).ToString(@"m\:ss");
+            UpdatePlayerScore();
         }
 
+        if (levelManager.currentLevelTime <= 0 && !hasShowVictoryPanel)
+        {
+            hasShowVictoryPanel = true;
+            DecideWinner();
+            victoryPanelAnim.SetTrigger("Enable");
+            StartCoroutine(DelayedPause());
+        }
+
+    }
+
+    IEnumerator DelayedPause()
+    {
+        yield return new WaitForSeconds(3);
+        Time.timeScale = 0;
     }
 
     void UpdatePlayerScore()
@@ -78,6 +91,18 @@ public class DisplayUI : MonoBehaviour
     {
         Time.timeScale = 1;
         UnityEngine.SceneManagement.SceneManager.LoadScene(0);
+    }
+
+    public void PauseGame()
+    {
+        Time.timeScale = 0;
+        pausePanel.SetActive(true);
+    }
+
+    public void ResumeGame()
+    {
+        Time.timeScale = 1;
+        pausePanel.SetActive(false);
     }
     
 }

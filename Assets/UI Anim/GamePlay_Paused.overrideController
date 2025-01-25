@@ -1,0 +1,19 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!221 &22100000
+AnimatorOverrideController:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: GamePlay_Paused
+  m_Controller: {fileID: 9100000, guid: b34237a2898f6254ba54d261341d587c, type: 2}
+  m_Clips:
+  - m_OriginalClip: {fileID: 7400000, guid: 5180d2811ea08ed4092ed30d49dc16cc, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: 5180d2811ea08ed4092ed30d49dc16cc, type: 2}
+  - m_OriginalClip: {fileID: 7400000, guid: 3644a16f5cd03d747a66c0206e0ce01c, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: 3644a16f5cd03d747a66c0206e0ce01c, type: 2}
+  - m_OriginalClip: {fileID: 7400000, guid: cf30df4ee72da3b439c61ec629e73cc1, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: cf30df4ee72da3b439c61ec629e73cc1, type: 2}
+  - m_OriginalClip: {fileID: 7400000, guid: 5d100e4fac68b5a4ba8da910534aa2cf, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: 5d100e4fac68b5a4ba8da910534aa2cf, type: 2}
