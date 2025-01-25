@@ -18,6 +18,9 @@ public class DisplayUI : MonoBehaviour
     public TextMeshProUGUI victoryPlayer;
     public TextMeshProUGUI victoryScore;
 
+    [Header("Pause Panel")]
+    public GameObject pausePanel;
+
     // Start is called before the first frame update
     void Start()
     {
