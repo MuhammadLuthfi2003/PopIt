@@ -36,11 +36,6 @@ public class MainMenu : MonoBehaviour
         //creditsMenu.SetActive(false);
         //playMenu.SetActive(false);
         //settingsMenu.SetActive(false);
-
-        controlsMenuAnim.SetTrigger("Disable");
-        creditsMenuAnim.SetTrigger("Disable");
-        playMenuAnim.SetTrigger("Disable");
-        settingsMenuAnim.SetTrigger("Disable");
     }
     
     public void PlayButtonPressed()
