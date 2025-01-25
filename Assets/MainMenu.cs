@@ -1,9 +1,12 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
+
 
 public class MainMenu : MonoBehaviour
 {
+    [Header("Panels")]
     public GameObject mainMenu;
     public GameObject controlsMenu;
     public GameObject creditsMenu;
@@ -21,6 +24,11 @@ public class MainMenu : MonoBehaviour
     bool isCreditsMenu = false;
     bool isPlayMenu = false;
     bool isSettingsMenu = false;
+
+    [Header("Option Buttons")]
+    public Button Button1m;
+    public Button Button3m;
+    public Button Button5m;
 
 
     // Start is called before the first frame update
@@ -112,4 +120,10 @@ public class MainMenu : MonoBehaviour
     {
         Application.Quit();
     }
+
+    public void DetermineTime()
+    {
+
+    }
+
 }
