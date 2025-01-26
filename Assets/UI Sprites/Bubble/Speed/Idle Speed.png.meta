@@ -95,7 +95,133 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
-    sprites: []
+    sprites:
+    - serializedVersion: 2
+      name: Idle Speed_0
+      rect:
+        serializedVersion: 2
+        x: 331
+        y: 282
+        width: 466
+        height: 542
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f1485ccc3ccba8542819fcab776154c3
+      internalID: 787799197
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Idle Speed_1
+      rect:
+        serializedVersion: 2
+        x: 1450
+        y: 282
+        width: 469
+        height: 542
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7beea7d478fe81641b0cc47bb566a015
+      internalID: -1572008366
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Idle Speed_2
+      rect:
+        serializedVersion: 2
+        x: 2572
+        y: 282
+        width: 466
+        height: 542
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 73725e43856f28d4bbb24c1c4a6fbd02
+      internalID: -760272136
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Idle Speed_3
+      rect:
+        serializedVersion: 2
+        x: 3691
+        y: 282
+        width: 466
+        height: 542
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: abbf33d53da29244c9e1746e232af137
+      internalID: -785216049
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Idle Speed_4
+      rect:
+        serializedVersion: 2
+        x: 4810
+        y: 282
+        width: 469
+        height: 542
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ca3450806afb0d042b1359653b61f4ac
+      internalID: -1357502253
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Idle Speed_5
+      rect:
+        serializedVersion: 2
+        x: 5931
+        y: 282
+        width: 467
+        height: 542
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: dae49ef7c4b4cb343af5dcc55fb8d12b
+      internalID: -12151537
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []
@@ -106,7 +232,13 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      Idle Speed_0: 787799197
+      Idle Speed_1: -1572008366
+      Idle Speed_2: -760272136
+      Idle Speed_3: -785216049
+      Idle Speed_4: -1357502253
+      Idle Speed_5: -12151537
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

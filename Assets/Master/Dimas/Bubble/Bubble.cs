@@ -42,6 +42,8 @@ public class Bubble : MonoBehaviour
 
     public Rigidbody2D bubbleRb;
 
+    private Player currentPlayerPopping;
+
     private void Awake() 
     {
         bubbleRb = GetComponent<Rigidbody2D>();
@@ -59,18 +61,8 @@ public class Bubble : MonoBehaviour
         // Pecah dulu baru ganti warna
         // UpdateDisplayByHP();
 
+        currentPlayerPopping = player;
         bubbleAnimator.Play(bubbleAnimationStateContainer.GetAnimationStateNameByAnimationName("Popping"));
-
-        if (currentHP <= 0)
-        {
-            LevelManager.Instance.bubbleGenerator.RemoveAndDestroyBubbleOnPopping(this);
-            
-            player.OnPlayerPoppingBubble(player, defaultHP, bubbleType, transform.position);
-        }else
-        {
-            Vector3 direction = transform.position - player.transform.position;
-            SetForce(direction, ForceMode2D.Impulse);
-        }
     }
     public void SetForce(Vector3 direction, ForceMode2D forceMode)
     {
@@ -80,6 +72,19 @@ public class Bubble : MonoBehaviour
     public void OnEndPoppingAnimation()
     {
         UpdateDisplayByHP();
+
+        if (currentHP <= 0)
+        {
+            LevelManager.Instance.bubbleGenerator.RemoveAndDestroyBubbleOnPopping(this);
+            
+            currentPlayerPopping.OnPlayerPoppingBubble(currentPlayerPopping, defaultHP, bubbleType, transform.position);
+        }else
+        {
+            Vector3 direction = transform.position - currentPlayerPopping.transform.position;
+            SetForce(direction, ForceMode2D.Impulse);
+        }
+        
+        currentPlayerPopping = null;
     }
     private void UpdateDisplayByHP()
     {
