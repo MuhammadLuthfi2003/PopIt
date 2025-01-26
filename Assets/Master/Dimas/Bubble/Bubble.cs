@@ -62,7 +62,7 @@ public class Bubble : MonoBehaviour
         // UpdateDisplayByHP();
 
         currentPlayerPopping = player;
-        bubbleAnimator.Play(bubbleAnimationStateContainer.GetAnimationStateNameByAnimationName("Popping"));
+        if (!bubbleAnimator.GetCurrentAnimatorStateInfo(0).IsName("Popping")) bubbleAnimator.Play(bubbleAnimationStateContainer.GetAnimationStateNameByAnimationName("Popping"));
     }
     public void SetForce(Vector3 direction, ForceMode2D forceMode)
     {
@@ -83,7 +83,7 @@ public class Bubble : MonoBehaviour
             Vector3 direction = transform.position - currentPlayerPopping.transform.position;
             SetForce(direction, ForceMode2D.Impulse);
         }
-        
+
         currentPlayerPopping = null;
     }
     private void UpdateDisplayByHP()

@@ -19,6 +19,7 @@ public class Player : MonoBehaviour
     private Vector2 inputValue;
 
     private List<GameObject> bubblesInteracted = new List<GameObject>();
+    private bool IsHasPopping;
 
     private void Awake()
     {
@@ -42,9 +43,20 @@ public class Player : MonoBehaviour
         bool isPress = context.ReadValueAsButton();
         if (isPress)
         {
+            Debug.Log("Pressing");
+            if (IsHasPopping) return;
+
             OnPoppingWithBubble();
             SFXPlayer.instance.PlaySwingSFX();
+
+            StartCoroutine(PoppingDelay());
         }
+    }
+    private IEnumerator PoppingDelay()
+    {
+        IsHasPopping = true;
+        yield return new WaitForSeconds(1);
+        IsHasPopping = false;
     }
 
     private void FixedUpdate() 
