@@ -17,6 +17,9 @@ public class LevelManager : MonoBehaviour
 
     public static LevelManager Instance { get; private set; } // singleton pattern
 
+    [Header("Combo Effect")]
+    public Animator comboEffectAnimator;
+
     private void Awake() 
     {
         if (Instance != null && Instance != this)
