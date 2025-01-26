@@ -49,7 +49,7 @@ public class SFXPlayer : MonoBehaviour
 
     public void PlayBubbleSpawnSFX()
     {
-        int randomIndex = Random.Range(0, bubbleSpawnSFXs.Length);
+        int randomIndex = Random.Range(0, bubbleSpawnSFXs.Length - 1);
         audioSource.PlayOneShot(bubbleSpawnSFXs[randomIndex]);
     }
 

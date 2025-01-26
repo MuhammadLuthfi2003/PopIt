@@ -47,10 +47,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   explosionSFX: {fileID: 8300000, guid: c3cc6c542b62c78488c20f0843bf98a7, type: 3}
   bubblePopSFX: {fileID: 8300000, guid: 5bd6035d62f75b744bc2ff9448f02f65, type: 3}
-  bubbleSpawnSFX: {fileID: 8300000, guid: 387c7ab6618bdab4d9ddbacd7d7efb14, type: 3}
   speedSFX: {fileID: 8300000, guid: 442f3cca5f927384091c72d322d79f7e, type: 3}
   stunSFX: {fileID: 8300000, guid: 0a3f0a9341c44374faf89c9825d41e61, type: 3}
   swingSFX: {fileID: 8300000, guid: f72432c0b77d14d468500c7a13f27069, type: 3}
+  bubbleSpawnSFXs:
+  - {fileID: 8300000, guid: 5d05bc031ff2dc841a0cf4f4de1c7c00, type: 3}
+  - {fileID: 8300000, guid: fb5e48b319918de4fa1e1076f1621f3d, type: 3}
+  - {fileID: 8300000, guid: 46daa4de39421f441a9adb7f8b0c9ef3, type: 3}
   buttonClickSFX: {fileID: 8300000, guid: ebad762aa71514c4e90a5c04574acd67, type: 3}
 --- !u!82 &4595077953805950084
 AudioSource:
