@@ -38,8 +38,24 @@ public class PlayerData
     {
         isStreakEffect = true;
 
+
+        if (!LevelManager.Instance.isComboEnabled) 
+        {
+            LevelManager.Instance.comboEffectAnimator.SetTrigger("Enable");
+        }
+
+        LevelManager.Instance.isComboEnabled = true;
+
         yield return new WaitForSeconds(time);
 
+
+        if (LevelManager.Instance.isComboEnabled)
+        {
+            LevelManager.Instance.comboEffectAnimator.SetTrigger("Disable");
+        }
+
+        LevelManager.Instance.isComboEnabled = false;
         isStreakEffect = false;
+
     }
 }
