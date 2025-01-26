@@ -5,7 +5,6 @@ using UnityEngine;
 public class MainMenuBubbleSpawner : MonoBehaviour
 {
     public GameObject BubblePrefab;
-    public int MaxBubbleAmount;
 
     public Vector2 oscillationRange;
     public Vector2 oscillationSpeed;
@@ -46,7 +45,7 @@ public class MainMenuBubbleSpawner : MonoBehaviour
 
     IEnumerator SpawnBubbles()
     {
-        for (int i = 0; i < MaxBubbleAmount; i++)
+        for (int i = 0; i < maxBubbleCount; i++)
         {
             if (currentBubbleCount < maxBubbleCount)
             {
@@ -54,29 +53,33 @@ public class MainMenuBubbleSpawner : MonoBehaviour
                 GameObject bubble = Instantiate(BubblePrefab, randomPoint, Quaternion.identity);
                 float randomsize = Random.Range(minBubbleSize, maxBubbleSize);
                 bubble.transform.localScale = new Vector3(randomsize, randomsize, randomsize);
+                SFXPlayer.instance.PlayBubbleSpawnSFX();
                 bubble.GetComponent<BubbleMainMenu>().speed = Random.Range(minOscillationSpeed, maxOscillationSpeed);
                 bubble.GetComponent<BubbleMainMenu>().offset = Random.Range(minOscillation, maxOscillation);
                 currentBubbleCount++;
                 bubbles.Add(bubble);
             }
             yield return new WaitForSeconds(0.5f);
-
-            if (currentBubbleCount >= maxBubbleCount)
-            {
-                print("max bubbles reached");
-                break;
-            }
         }
+
+        StartCoroutine(BreakAllBubbles());
     }
 
     IEnumerator BreakAllBubbles()
     {
+        print("Breaking all bubbles");
         foreach (GameObject bubble in bubbles)
         {
+            SFXPlayer.instance.PlayBubblePopSFX();
             Destroy(bubble);
             currentBubbleCount--;
-            yield return new WaitForSeconds(0.1f);
+            float randomtime = Random.Range(0.1f, 0.3f);
+            yield return new WaitForSeconds(randomtime);
         }
+
+        bubbles.Clear();
+        yield return new WaitForSeconds(3f);
+        StartCoroutine(SpawnBubbles());
     }
 
     Vector3 RandomPointInBounds()

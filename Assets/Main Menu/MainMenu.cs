@@ -30,10 +30,14 @@ public class MainMenu : MonoBehaviour
     public Button Button3m;
     public Button Button5m;
 
+    private SFXPlayer sfxPlayer;
+
 
     // Start is called before the first frame update
     void Start()
     {
+        sfxPlayer = SFXPlayer.instance;
+
         mainMenuAnim = mainMenu.GetComponent<Animator>();
         controlsMenuAnim = controlsMenu.GetComponent<Animator>();
         creditsMenuAnim = creditsMenu.GetComponent<Animator>();
@@ -51,6 +55,8 @@ public class MainMenu : MonoBehaviour
         playMenuAnim.SetTrigger("Enable");
         mainMenuAnim.SetTrigger("Disable");
 
+        sfxPlayer.PlayButtonClickSFX();
+
         isMainMenu = false;
         isPlayMenu = true;
     }
@@ -59,6 +65,8 @@ public class MainMenu : MonoBehaviour
     {
         settingsMenuAnim.SetTrigger("Enable");
         mainMenuAnim.SetTrigger("Disable");
+
+        sfxPlayer.PlayButtonClickSFX();
 
         isMainMenu = false;
         isSettingsMenu = true;
@@ -69,6 +77,8 @@ public class MainMenu : MonoBehaviour
         creditsMenuAnim.SetTrigger("Enable");
         mainMenuAnim.SetTrigger("Disable");
 
+        sfxPlayer.PlayButtonClickSFX();
+
         isMainMenu = false;
         isCreditsMenu = true;
     }
@@ -77,6 +87,8 @@ public class MainMenu : MonoBehaviour
     {
         mainMenuAnim.SetTrigger("Disable");
         controlsMenuAnim.SetTrigger("Enable");
+
+        sfxPlayer.PlayButtonClickSFX();
 
         isMainMenu = false;
         isControlsMenu = true;
@@ -109,10 +121,19 @@ public class MainMenu : MonoBehaviour
             isSettingsMenu = false;
         }
 
+        sfxPlayer.PlayButtonClickSFX();
     }
 
     public void PlayGame()
     {
+        sfxPlayer.PlayButtonClickSFX();
+
+        StartCoroutine(DelayedLoad());
+    }
+
+    IEnumerator DelayedLoad()
+    {
+        yield return new WaitForSeconds(1.5f);
         UnityEngine.SceneManagement.SceneManager.LoadScene(1);
     }
 
@@ -123,6 +144,8 @@ public class MainMenu : MonoBehaviour
 
     public void DetermineTime()
     {
+
+        sfxPlayer.PlayButtonClickSFX();
         GameObject clickedButton = UnityEngine.EventSystems.EventSystem.current.currentSelectedGameObject;
         Button chosenButton = clickedButton.GetComponent<Button>();
 

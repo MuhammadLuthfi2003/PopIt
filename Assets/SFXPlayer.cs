@@ -4,16 +4,19 @@ using UnityEngine;
 
 public class SFXPlayer : MonoBehaviour
 {
-    private static SFXPlayer instance;
+    public static SFXPlayer instance;
 
     private AudioSource audioSource;
 
     [Header("Gameplay SFX")]
     public AudioClip explosionSFX;
     public AudioClip bubblePopSFX;
-    public AudioClip bubbleSpawnSFX;
+    
     public AudioClip speedSFX;
     public AudioClip stunSFX;
+
+    [Header("Bubble SFX")]
+    public AudioClip[] bubbleSpawnSFXs;
 
     [Header("UI SFX")]
     public AudioClip buttonClickSFX;
@@ -45,7 +48,8 @@ public class SFXPlayer : MonoBehaviour
 
     public void PlayBubbleSpawnSFX()
     {
-        audioSource.PlayOneShot(bubbleSpawnSFX);
+        int randomIndex = Random.Range(0, bubbleSpawnSFXs.Length);
+        audioSource.PlayOneShot(bubbleSpawnSFXs[randomIndex]);
     }
 
     public void PlaySpeedSFX()
