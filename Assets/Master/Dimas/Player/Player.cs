@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Security;
 using UnityEngine;
 
 using UnityEngine.InputSystem;
@@ -10,6 +11,9 @@ public class Player : MonoBehaviour
     public PlayerData playerData;
 
     public Rigidbody2D playerRb;
+    public Animator playerAnimator;
+
+    public AnimationStateContainer playerAnimationContainer;
 
     private Vector2 inputValue;
 
@@ -28,6 +32,8 @@ public class Player : MonoBehaviour
         if (inputValue == Vector2.zero)
         {
             playerRb.velocity = Vector2.zero;
+
+            return;
         }
     }
     public void OnInputPopping(InputAction.CallbackContext context)
@@ -55,6 +61,8 @@ public class Player : MonoBehaviour
     }
     private void OnPoppingWithBubble()
     {
+        playerAnimator.Play(playerAnimationContainer.GetAnimationStateNameByAnimationName("Attack"));
+
         if (bubblesInteracted == null || bubblesInteracted.Count <= 0) return;
 
         Bubble bubble = bubblesInteracted[0].GetComponent<Bubble>();
