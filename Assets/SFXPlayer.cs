@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class SFXPlayer : MonoBehaviour
 {
-    private static SFXPlayer instance;
+    public static SFXPlayer instance;
 
     private AudioSource audioSource;
 
@@ -14,6 +14,7 @@ public class SFXPlayer : MonoBehaviour
     public AudioClip bubbleSpawnSFX;
     public AudioClip speedSFX;
     public AudioClip stunSFX;
+    public AudioClip swingSFX;
 
     [Header("UI SFX")]
     public AudioClip buttonClickSFX;
@@ -61,5 +62,10 @@ public class SFXPlayer : MonoBehaviour
     public void PlayButtonClickSFX()
     {
         audioSource.PlayOneShot(buttonClickSFX);
+    }
+
+    public void PlaySwingSFX()
+    {
+        audioSource.PlayOneShot(swingSFX);
     }
 }

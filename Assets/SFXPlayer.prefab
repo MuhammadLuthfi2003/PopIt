@@ -50,6 +50,7 @@ MonoBehaviour:
   bubbleSpawnSFX: {fileID: 8300000, guid: 387c7ab6618bdab4d9ddbacd7d7efb14, type: 3}
   speedSFX: {fileID: 8300000, guid: 442f3cca5f927384091c72d322d79f7e, type: 3}
   stunSFX: {fileID: 8300000, guid: 0a3f0a9341c44374faf89c9825d41e61, type: 3}
+  swingSFX: {fileID: 8300000, guid: f72432c0b77d14d468500c7a13f27069, type: 3}
   buttonClickSFX: {fileID: 8300000, guid: ebad762aa71514c4e90a5c04574acd67, type: 3}
 --- !u!82 &4595077953805950084
 AudioSource:
