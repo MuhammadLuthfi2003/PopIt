@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 3cf975bce008a0243871fa32c5d9f8e0
+guid: fc3d3e2fc56fcb34da1984045b7e5876
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -97,13 +97,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Idle 2X_0
+      name: Freeze, Entry - idle_0
       rect:
         serializedVersion: 2
-        x: 302
-        y: 344
-        width: 469
-        height: 457
+        x: 0
+        y: 0
+        width: 1115
+        height: 1080
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -111,20 +111,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: dd400666d60e5084aa51b36e44ed4d2f
-      internalID: 1630012370
+      spriteID: 2d52c1e661b4b2546a878108651039b7
+      internalID: -1455094668
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Idle 2X_1
+      name: Freeze, Entry - idle_1
       rect:
         serializedVersion: 2
-        x: 1421
-        y: 344
-        width: 469
-        height: 457
+        x: 1115
+        y: 0
+        width: 1115
+        height: 1080
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -132,20 +132,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 527f3a2116c4c7b4baa01ba1764a8161
-      internalID: 2063902536
+      spriteID: 9b00a122f484908408908e0f0a3e36f4
+      internalID: -172731622
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Idle 2X_2
+      name: Freeze, Entry - idle_2
       rect:
         serializedVersion: 2
-        x: 2543
-        y: 344
-        width: 469
-        height: 457
+        x: 2230
+        y: 0
+        width: 1115
+        height: 1080
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -153,20 +153,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: d6e354e55a42f76419b9f8c99e2c965e
-      internalID: 1254325536
+      spriteID: ecacf590519120a4ead99b0fd4b02302
+      internalID: -194473768
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Idle 2X_3
+      name: Freeze, Entry - idle_3
       rect:
         serializedVersion: 2
-        x: 3661
-        y: 344
-        width: 470
-        height: 457
+        x: 3345
+        y: 0
+        width: 1115
+        height: 1080
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -174,20 +174,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 0c8f00e87e0234241b43cf0d42ff4d92
-      internalID: -1809199770
+      spriteID: f02adb848cd0148478a1990c9feb41b1
+      internalID: -167317615
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Idle 2X_4
+      name: Freeze, Entry - idle_4
       rect:
         serializedVersion: 2
-        x: 4780
-        y: 344
-        width: 470
-        height: 457
+        x: 4460
+        y: 0
+        width: 1115
+        height: 1080
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -195,20 +195,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 77694d3d02547594881a9d2df0c5a46b
-      internalID: 1180922868
+      spriteID: c434237e355fb604289d542925333eac
+      internalID: 52043935
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Idle 2X_5
+      name: Freeze, Entry - idle_5
       rect:
         serializedVersion: 2
-        x: 5902
-        y: 344
-        width: 470
-        height: 457
+        x: 5575
+        y: 0
+        width: 1115
+        height: 1080
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -216,8 +216,50 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 96e68cb9700c64b468e10b4a3ae4234a
-      internalID: -1814370913
+      spriteID: 569974e1a8ab9014facdcdff75a8c0af
+      internalID: 1128239959
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Freeze, Entry - idle_6
+      rect:
+        serializedVersion: 2
+        x: 6690
+        y: 0
+        width: 1115
+        height: 1080
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b06f9524d05fb0e4688c4b3b743b4967
+      internalID: -356255317
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Freeze, Entry - idle_7
+      rect:
+        serializedVersion: 2
+        x: 7805
+        y: 0
+        width: 1115
+        height: 1080
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7e0fe39c44501bb41961dcb946e13cbe
+      internalID: 1880686238
       vertices: []
       indices: 
       edges: []
@@ -233,12 +275,14 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      Idle 2X_0: 1630012370
-      Idle 2X_1: 2063902536
-      Idle 2X_2: 1254325536
-      Idle 2X_3: -1809199770
-      Idle 2X_4: 1180922868
-      Idle 2X_5: -1814370913
+      Freeze, Entry - idle_0: -1455094668
+      Freeze, Entry - idle_1: -172731622
+      Freeze, Entry - idle_2: -194473768
+      Freeze, Entry - idle_3: -167317615
+      Freeze, Entry - idle_4: 52043935
+      Freeze, Entry - idle_5: 1128239959
+      Freeze, Entry - idle_6: -356255317
+      Freeze, Entry - idle_7: 1880686238
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

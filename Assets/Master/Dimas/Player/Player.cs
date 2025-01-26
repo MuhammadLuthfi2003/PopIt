@@ -12,6 +12,7 @@ public class Player : MonoBehaviour
 
     public Rigidbody2D playerRb;
     public Animator playerAnimator;
+    public Transform playerEffectParentPosition;
 
     public AnimationStateContainer playerAnimationContainer;
 
@@ -111,7 +112,7 @@ public class Player : MonoBehaviour
             case EnumManager.BubbleType.Speed:
                 playerData.isSpeedEffect = true;
                 if (playerData.SpeedCorotine != null) StopCoroutine(playerData.SpeedCorotine);
-                playerData.SpeedCorotine = StartCoroutine(playerData.ChangeSpeed(5, playerData.RuntimeSpeed * 2, () => 
+                playerData.SpeedCorotine = StartCoroutine(playerData.ChangeSpeed(5, playerData.DefaultSpeed * 2, () => 
                 {
                     playerData.isSpeedEffect = false;
                 }));
@@ -141,16 +142,25 @@ public class Player : MonoBehaviour
 
             Debug.Log(players[i].name);
             Player player = players[i];
+            
+            // Effect
+            GameObject effectObject = EffectManager.Instance.CreateEffect("Freeze", player.playerEffectParentPosition.position, childTransform: player.playerEffectParentPosition);
+
             player.playerData.isStunEffect = true;
             if (player.playerData.SpeedCorotine != null) player.StopCoroutine(player.playerData.SpeedCorotine);
-            player.playerData.SpeedCorotine = player.StartCoroutine(player.playerData.ChangeSpeed(5, 2.5f, () =>
+            player.playerData.SpeedCorotine = player.StartCoroutine(player.playerData.ChangeSpeed(5, player.playerData.DefaultSpeed / 2, () =>
             {
                 player.playerData.isStunEffect = false;
+                Destroy(effectObject.gameObject);
             }));
         }
     }
     public void BlastPlayerArround(Vector3 lastBubblePosition)
     {
+        GameObject effectObject = EffectManager.Instance.CreateEffect("Bomb", lastBubblePosition, AnimationEventKey: "OnEndBombEffect", AnimationEventAction: (x) => {
+            Destroy(x.gameObject);
+        });
+
         Player[] players = GameObject.FindObjectsOfType<Player>();
 
         for (int i = 0; i < players.Length; i++)

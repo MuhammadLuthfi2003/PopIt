@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -45,6 +46,20 @@ public class EffectManager : MonoBehaviour
 
         effect.transform.position = position;
         effect.transform.SetParent(childTransform);
+
+        return effect;
+    }
+
+    public GameObject CreateEffect(string effectName, Vector3 position, Transform childTransform = null, string AnimationEventKey = "", Action<GameObject> AnimationEventAction = null)
+    {
+        GameObject effect = CreateEffect(effectName, position, childTransform);
+
+        AnimationClipEventCostum clipEvent = effect.GetComponent<AnimationClipEventCostum>();
+
+        AnimationClipContainer.AnimationClips animationClips = clipEvent.animationClipContainer.GetClipsEvent(AnimationEventKey);
+
+        animationClips.EventToExecute = new UnityEngine.Events.UnityEvent();
+        animationClips.EventToExecute.AddListener(() => AnimationEventAction?.Invoke(effect));
 
         return effect;
     }

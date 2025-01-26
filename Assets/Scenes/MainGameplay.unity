@@ -2333,6 +2333,7 @@ MonoBehaviour:
   player2: {fileID: 674666053}
   bubbleGenerator: {fileID: 1723521255}
   comboEffectAnimator: {fileID: 683128954}
+  isComboEnabled: 0
 --- !u!4 &1434374001
 Transform:
   m_ObjectHideFlags: 0
@@ -2545,6 +2546,7 @@ MonoBehaviour:
     isStreakEffect: 0
   playerRb: {fileID: 0}
   playerAnimator: {fileID: 0}
+  playerEffectParentPosition: {fileID: 0}
   playerAnimationContainer:
     CurrentAnimationState: []
 --- !u!50 &1460562137
@@ -3571,6 +3573,10 @@ MonoBehaviour:
   spawnTimerDelay: 2
   BubblesGameobjects:
   - {fileID: 7045652742282671857, guid: 0ed2a6d0016d01a47b3ba79d35e5f27a, type: 3}
+  - {fileID: 7045652742282671857, guid: 6f687b7e0096223499bd487482e5b6f5, type: 3}
+  - {fileID: 7045652742282671857, guid: 76c6e3a503f4665479691bd43a8f7772, type: 3}
+  - {fileID: 7045652742282671857, guid: a3704d6beb0dd7943a05a54979ffdab4, type: 3}
+  - {fileID: 7045652742282671857, guid: 025f049d724e91a4fa07d4763b5f28f6, type: 3}
   BubblesSpawnCollider: {fileID: 274405519}
   Bubbless: []
 --- !u!4 &1723521256
@@ -4057,8 +4063,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   effectBubbleContainer:
     CurrentAnimationState:
-    - effectName: 
-      effectObjectToSpawn: {fileID: 0}
+    - effectName: Freeze
+      effectObjectToSpawn: {fileID: 9040366611357230476, guid: 9168343e07d149d40a9975a988793ed0, type: 3}
+    - effectName: Bomb
+      effectObjectToSpawn: {fileID: 7005353119091016671, guid: f3e5ae3592d0e2946b2902554d292ede, type: 3}
 --- !u!1001 &281030727285901676
 PrefabInstance:
   m_ObjectHideFlags: 0

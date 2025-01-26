@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 3cf975bce008a0243871fa32c5d9f8e0
+guid: 453af28292cba1342b3d750ac9f848ec
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -97,127 +97,127 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Idle 2X_0
+      name: Power UP Bomb_1
       rect:
         serializedVersion: 2
-        x: 302
-        y: 344
-        width: 469
-        height: 457
+        x: 290
+        y: 323
+        width: 516
+        height: 490
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: dd400666d60e5084aa51b36e44ed4d2f
-      internalID: 1630012370
+      spriteID: e409b01c5d315e246a5727ec2fce9b1d
+      internalID: -663711713
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Idle 2X_1
+      name: Power UP Bomb_2
       rect:
         serializedVersion: 2
-        x: 1421
-        y: 344
-        width: 469
-        height: 457
+        x: 1412
+        y: 307
+        width: 490
+        height: 466
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 527f3a2116c4c7b4baa01ba1764a8161
-      internalID: 2063902536
+      spriteID: bd9cd26f60c363c4cb3025eecfcf7b6e
+      internalID: 1416171737
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Idle 2X_2
+      name: Power UP Bomb_3
       rect:
         serializedVersion: 2
-        x: 2543
-        y: 344
-        width: 469
-        height: 457
+        x: 2544
+        y: 320
+        width: 493
+        height: 460
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: d6e354e55a42f76419b9f8c99e2c965e
-      internalID: 1254325536
+      spriteID: 20b10e28b139a7b45a64801ecd0dec15
+      internalID: -1824618796
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Idle 2X_3
+      name: Power UP Bomb_4
       rect:
         serializedVersion: 2
-        x: 3661
-        y: 344
-        width: 470
-        height: 457
+        x: 3659
+        y: 330
+        width: 487
+        height: 473
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 0c8f00e87e0234241b43cf0d42ff4d92
-      internalID: -1809199770
+      spriteID: e656116a535959544ae5b4c42ccdf54c
+      internalID: -1557604027
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Idle 2X_4
+      name: Power UP Bomb_5
       rect:
         serializedVersion: 2
-        x: 4780
-        y: 344
-        width: 470
-        height: 457
+        x: 4839
+        y: 355
+        width: 357
+        height: 351
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 77694d3d02547594881a9d2df0c5a46b
-      internalID: 1180922868
+      spriteID: 2f7bb974b97ad1245a738beb54cbf21a
+      internalID: 461044509
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Idle 2X_5
+      name: Power UP Bomb_6
       rect:
         serializedVersion: 2
-        x: 5902
-        y: 344
-        width: 470
-        height: 457
+        x: 5961
+        y: 342
+        width: 380
+        height: 386
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 96e68cb9700c64b468e10b4a3ae4234a
-      internalID: -1814370913
+      spriteID: ae8a09d95a5708349a20b574e0d0dd03
+      internalID: -29495804
       vertices: []
       indices: 
       edges: []
@@ -233,12 +233,23 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      Idle 2X_0: 1630012370
-      Idle 2X_1: 2063902536
-      Idle 2X_2: 1254325536
-      Idle 2X_3: -1809199770
-      Idle 2X_4: 1180922868
-      Idle 2X_5: -1814370913
+      Power UP Bomb_1: -663711713
+      Power UP Bomb_10: -807706212
+      Power UP Bomb_11: 71993178
+      Power UP Bomb_12: -496310564
+      Power UP Bomb_13: -2082824044
+      Power UP Bomb_14: 162952937
+      Power UP Bomb_15: 1537972965
+      Power UP Bomb_16: -771007692
+      Power UP Bomb_17: -1509887575
+      Power UP Bomb_2: 1416171737
+      Power UP Bomb_3: -1824618796
+      Power UP Bomb_4: -1557604027
+      Power UP Bomb_5: 461044509
+      Power UP Bomb_6: -29495804
+      Power UP Bomb_7: 1475267682
+      Power UP Bomb_8: 1966156276
+      Power UP Bomb_9: -1336007245
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
