@@ -81,6 +81,7 @@ public class Bubble : MonoBehaviour
     public void OnEndPoppingAnimation()
     {
         UpdateDisplayByHP();
+        transform.localScale = (Vector2)transform.localScale - (Vector2.one * 0.1f);
 
         if (currentHP <= 0)
         {
