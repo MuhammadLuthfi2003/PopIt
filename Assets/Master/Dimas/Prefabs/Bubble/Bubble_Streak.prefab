@@ -291,11 +291,11 @@ MonoBehaviour:
   bubbleColorByHP:
     CurrentAnimationState:
     - HP: 1
-      color: {r: 0.084590435, g: 1, b: 0, a: 1}
+      color: {r: 0.38685068, g: 0.9245283, b: 0.3471341, a: 1}
     - HP: 2
-      color: {r: 1, g: 0, b: 0, a: 1}
+      color: {r: 1, g: 0.9315918, b: 0, a: 1}
     - HP: 3
-      color: {r: 1, g: 0.8640462, b: 0, a: 1}
+      color: {r: 0, g: 0.056978226, b: 1, a: 1}
   bubbleAnimationStateContainer:
     CurrentAnimationState:
     - animationName: Popping
