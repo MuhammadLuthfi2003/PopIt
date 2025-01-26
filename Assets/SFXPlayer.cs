@@ -16,6 +16,10 @@ public class SFXPlayer : MonoBehaviour
     public AudioClip stunSFX;
     public AudioClip swingSFX;
 
+    public AudioClip multSFX;
+
+    public AudioClip bubblehitSFX;
+
     [Header("Bubble SFX")]
     public AudioClip[] bubbleSpawnSFXs;
 
@@ -71,5 +75,15 @@ public class SFXPlayer : MonoBehaviour
     public void PlaySwingSFX()
     {
         audioSource.PlayOneShot(swingSFX);
+    }
+
+    public void PlayBubbleHitSFX()
+    {
+        audioSource.PlayOneShot(bubblehitSFX);
+    }
+
+    public void PlayMultSFX()
+    {
+        audioSource.PlayOneShot(multSFX);
     }
 }

@@ -50,6 +50,8 @@ MonoBehaviour:
   speedSFX: {fileID: 8300000, guid: 442f3cca5f927384091c72d322d79f7e, type: 3}
   stunSFX: {fileID: 8300000, guid: 0a3f0a9341c44374faf89c9825d41e61, type: 3}
   swingSFX: {fileID: 8300000, guid: f72432c0b77d14d468500c7a13f27069, type: 3}
+  multSFX: {fileID: 8300000, guid: 4418363ec0d08d74282cfcfaf951ba69, type: 3}
+  bubblehitSFX: {fileID: 8300000, guid: 53751ff1bc5d6684b9be0993e3c77a6c, type: 3}
   bubbleSpawnSFXs:
   - {fileID: 8300000, guid: 5d05bc031ff2dc841a0cf4f4de1c7c00, type: 3}
   - {fileID: 8300000, guid: fb5e48b319918de4fa1e1076f1621f3d, type: 3}

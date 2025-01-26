@@ -58,6 +58,15 @@ public class Bubble : MonoBehaviour
         Debug.Log("On Popping");
         currentHP--;
 
+        if (currentHP < 1) {
+            SFXPlayer.instance.PlayBubbleHitSFX();
+        }
+        else
+        {
+            SFXPlayer.instance.PlayBubblePopSFX();
+        }
+
+
         // Pecah dulu baru ganti warna
         // UpdateDisplayByHP();
 

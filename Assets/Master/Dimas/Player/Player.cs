@@ -80,6 +80,7 @@ public class Player : MonoBehaviour
         if (bubblesInteracted == null || bubblesInteracted.Count <= 0) return;
 
         Bubble bubble = bubblesInteracted[0].GetComponent<Bubble>();
+        
         bubble.OnPopping(this);
     }
 
@@ -107,7 +108,6 @@ public class Player : MonoBehaviour
     public void OnPlayerPoppingBubble(Player player, int hp, EnumManager.BubbleType type, Vector3 lastBubblePosition)
     {
         playerData.point += hp;
-        SFXPlayer.instance.PlayBubblePopSFX();
         if (playerData.isStreakEffect)
         {
             playerData.point += hp * 2;
@@ -150,9 +150,10 @@ public class Player : MonoBehaviour
                 break;
             case EnumManager.BubbleType.Streak:
                 if (playerData.StreakCoroutine != null) StopCoroutine(playerData.StreakCoroutine);
-
-                    playerData.StreakCoroutine = StartCoroutine(playerData.GetStreakEffect(5));
                 
+                    playerData.StreakCoroutine = StartCoroutine(playerData.GetStreakEffect(5));
+                SFXPlayer.instance.PlayMultSFX();
+
                 break;
         }
     }
