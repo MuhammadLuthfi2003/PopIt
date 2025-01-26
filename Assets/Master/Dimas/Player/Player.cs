@@ -68,7 +68,6 @@ public class Player : MonoBehaviour
         if (bubblesInteracted == null || bubblesInteracted.Count <= 0) return;
 
         Bubble bubble = bubblesInteracted[0].GetComponent<Bubble>();
-        SFXPlayer.instance.PlayBubblePopSFX();
         bubble.OnPopping(this);
     }
 
@@ -116,18 +115,20 @@ public class Player : MonoBehaviour
                 {
                     playerData.isSpeedEffect = false;
                 }));
+                SFXPlayer.instance.PlaySpeedSFX();
                 break;
             case EnumManager.BubbleType.Stun:
                 StunOtherPlayer();
+                SFXPlayer.instance.PlayStunSFX();
                 break;
             case EnumManager.BubbleType.Bomb:
                 BlastPlayerArround(lastBubblePosition);
-
+                SFXPlayer.instance.PlayExplosionSFX();
                 break;
             case EnumManager.BubbleType.Streak:
                 if (playerData.StreakCoroutine != null) StopCoroutine(playerData.StreakCoroutine);
                 playerData.StreakCoroutine = StartCoroutine(playerData.GetStreakEffect(5));
-
+                
                 break;
         }
     }
