@@ -19,6 +19,7 @@ public class LevelManager : MonoBehaviour
 
     [Header("Combo Effect")]
     public Animator comboEffectAnimator;
+    public bool isComboEnabled = false;
 
     private void Awake() 
     {
