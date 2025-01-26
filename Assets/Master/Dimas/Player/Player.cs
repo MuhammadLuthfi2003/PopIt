@@ -107,6 +107,7 @@ public class Player : MonoBehaviour
     public void OnPlayerPoppingBubble(Player player, int hp, EnumManager.BubbleType type, Vector3 lastBubblePosition)
     {
         playerData.point += hp;
+        SFXPlayer.instance.PlayBubblePopSFX();
         if (playerData.isStreakEffect)
         {
             playerData.point += hp * 2;
@@ -122,6 +123,16 @@ public class Player : MonoBehaviour
         {
             case EnumManager.BubbleType.Speed:
                 playerData.isSpeedEffect = true;
+
+                if (playerData.isP1)
+                {
+                    ShowPlayerEffect.instance.ToggleP1Speed(true);
+                }
+                else
+                {
+                    ShowPlayerEffect.instance.ToggleP2Speed(true);
+                }
+
                 if (playerData.SpeedCorotine != null) StopCoroutine(playerData.SpeedCorotine);
                 playerData.SpeedCorotine = StartCoroutine(playerData.ChangeSpeed(5, playerData.DefaultSpeed * 2, () => 
                 {
@@ -139,7 +150,8 @@ public class Player : MonoBehaviour
                 break;
             case EnumManager.BubbleType.Streak:
                 if (playerData.StreakCoroutine != null) StopCoroutine(playerData.StreakCoroutine);
-                playerData.StreakCoroutine = StartCoroutine(playerData.GetStreakEffect(5));
+
+                    playerData.StreakCoroutine = StartCoroutine(playerData.GetStreakEffect(5));
                 
                 break;
         }
@@ -156,6 +168,15 @@ public class Player : MonoBehaviour
             Debug.Log(players[i].name);
             Player player = players[i];
             
+            if (playerData.isP1)
+            {
+                ShowPlayerEffect.instance.ToggleP2Stun(true);
+            }
+            else
+            {
+                ShowPlayerEffect.instance.ToggleP1Stun(true);
+            }
+
             // Effect
             GameObject effectObject = EffectManager.Instance.CreateEffect("Freeze", player.playerEffectParentPosition.position, childTransform: player.playerEffectParentPosition);
 

@@ -7,6 +7,7 @@ using UnityEngine;
 public class PlayerData
 {
     public int point;
+    public bool isP1;
 
     public float DefaultSpeed;
     public float RuntimeSpeed;
@@ -25,11 +26,35 @@ public class PlayerData
     {
         Debug.Log("Change Speed");
 
-        RuntimeSpeed = value;
+
+            RuntimeSpeed = value;
 
         yield return new WaitForSeconds(time);
 
-        Debug.Log("Default Change Speed");
+        if (isStunEffect)
+        {
+            if (isP1)
+            {
+                ShowPlayerEffect.instance.ToggleP2Stun(false);
+            }
+            else
+            {
+                ShowPlayerEffect.instance.ToggleP1Stun(false);
+            }
+        }
+        else if (isSpeedEffect)
+        {
+            if (isP1)
+            {
+                ShowPlayerEffect.instance.ToggleP1Speed(false);
+            }
+            else
+            {
+                ShowPlayerEffect.instance.ToggleP2Speed(false);
+            }
+        }
+
+            Debug.Log("Default Change Speed");
 
         RuntimeSpeed = DefaultSpeed;
         onFinished?.Invoke();
@@ -38,6 +63,15 @@ public class PlayerData
     {
         isStreakEffect = true;
 
+
+        if (isP1)
+        {
+            ShowPlayerEffect.instance.ToggleP1Mult(true);
+        }
+        else
+        {
+            ShowPlayerEffect.instance.ToggleP2Mult(true);
+        }
 
         if (!LevelManager.Instance.isComboEnabled) 
         {
@@ -48,6 +82,14 @@ public class PlayerData
 
         yield return new WaitForSeconds(time);
 
+        if (isP1)
+        {
+            ShowPlayerEffect.instance.ToggleP1Mult(false);
+        }
+        else
+        {
+            ShowPlayerEffect.instance.ToggleP2Mult(false);
+        }
 
         if (LevelManager.Instance.isComboEnabled)
         {

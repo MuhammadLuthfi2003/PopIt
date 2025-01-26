@@ -430,6 +430,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerData:
     point: 0
+    isP1: 1
     DefaultSpeed: 5
     RuntimeSpeed: 5
     isSpeedEffect: 0

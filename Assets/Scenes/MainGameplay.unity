@@ -2954,6 +2954,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerData:
     point: 0
+    isP1: 0
     DefaultSpeed: 0
     RuntimeSpeed: 0
     isSpeedEffect: 0
@@ -4142,6 +4143,72 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1733127691}
   m_CullTransparentMesh: 1
+--- !u!1 &1811205218
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1811205220}
+  - component: {fileID: 1811205219}
+  m_Layer: 0
+  m_Name: Player Effect
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1811205219
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1811205218}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6a7d27e0ff056a94c89ddd267d6f5f2c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  P1:
+    point: 0
+    isP1: 0
+    DefaultSpeed: 0
+    RuntimeSpeed: 0
+    isSpeedEffect: 0
+    isStunEffect: 0
+    isStreakEffect: 0
+  P2:
+    point: 0
+    isP1: 0
+    DefaultSpeed: 0
+    RuntimeSpeed: 0
+    isSpeedEffect: 0
+    isStunEffect: 0
+    isStreakEffect: 0
+  P1Speed: {fileID: 1305571220}
+  P1Stun: {fileID: 224433074}
+  P1Mult: {fileID: 689723974}
+  P2Speed: {fileID: 1838525590}
+  P2Stun: {fileID: 1421741251}
+  P2Mult: {fileID: 468262177}
+--- !u!4 &1811205220
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1811205218}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 505.26828, y: 315.65152, z: -2.6173096}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1824779095
 GameObject:
   m_ObjectHideFlags: 0
@@ -4765,6 +4832,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8694506292969472590, guid: 62ff6090a65984b48a71ca9e016127b0, type: 3}
+      propertyPath: playerData.isP1
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -4783,3 +4854,4 @@ SceneRoots:
   - {fileID: 2304063096287636887}
   - {fileID: 2078906492}
   - {fileID: 281030727285901676}
+  - {fileID: 1811205220}
